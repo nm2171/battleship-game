@@ -12,7 +12,9 @@
                     </tr>
                 </tbody>
             </table>
-            <p [ngClass]="{hidden: hideSection}" class="mt-3">Sinked Ships: {{player?.lostShips}}</p>
+            <ng-container *ngIf="!hideSection">
+                <p class="mt-3">Sinked Ships: {{player?.lostShips}}</p>
+            </ng-container>
         </div>
     </div>
 </div>

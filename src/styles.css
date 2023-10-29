@@ -2,3 +2,28 @@
 
 @import url('../node_modules/bootstrap/dist/css/bootstrap.css');
 
+.unclickableTable {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.shipField {
+    background: red !important;
+}
+
+.emptyField {
+    background: grey !important;
+}
+
+.hidden {
+    display: none;
+}
+
+table td {
+    background: red;
+}
+
+.active {
+    background: blue !important;
+}

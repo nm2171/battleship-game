@@ -6,57 +6,7 @@ import { IShipPosition } from '../intefaces/IShip';
 export class TrackProgressService {
     constructor() { }
 
-    players: IPlayer[] = [
-        {
-                id: 111,
-                name: 'dipsi',
-                firstStage: false,
-                shipPlacement: [],
-                score: 0,
-                lostShips: 0
-            },
-            {
-                id: 222,
-                name: 'lala',
-                firstStage: false,
-                shipPlacement: [],
-                score: 0,
-                lostShips: 0
-            }
-    ];
-
-    // {
-    //     id: 111,
-    //     name: 'example',
-    //     firstStage: true,
-    //     shipPlacement: [
-    //         {
-    //             id: 1111,
-    //             positions: [{
-    //                 attacked: false,
-    //                 position: 'col-0 row-0'
-    //             }]
-    //         }
-    //     ],
-    //     score: 0,
-    //     lostShips: 0
-    // },
-    // {
-    //     id: 222,
-    //     name: 'lala',
-    //     firstStage: true,
-    //     shipPlacement: [
-    //         {
-    //             id: 2221,
-    //             positions: [{
-    //                 attacked: false,
-    //                 position: 'col-0 row-0'
-    //             }]
-    //         }
-    //     ],
-    //     score: 0,
-    //     lostShips: 0
-    // }
+    players: IPlayer[] = [];
 
     addPlayer(player: IPlayer) {
         player.firstStage = false;

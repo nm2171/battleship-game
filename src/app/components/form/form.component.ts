@@ -46,9 +46,8 @@ export class FormComponent implements OnInit {
                 
                 for (let i = col; i < col + lenght; i++) {
                     let el = tableRow[i] as HTMLElement;
-                    
-                    position.push(el.className);
                     el.dataset['ship'] = "1";
+                    position.push(el.className);
                     el.classList.add('active');
                 }
                 this.trackProgress.addShipPlacement(this.player?.id!, position);
@@ -58,9 +57,8 @@ export class FormComponent implements OnInit {
                 let position: string[] = [];
                 for (let i = row; i < row + lenght; i++) {
                     let el = tableColumn[i] as HTMLElement;
-                    position.push(el.className);
-                    
                     el.dataset['ship'] = "1";
+                    position.push(el.className);
                     el.classList.add('active');
                 }
                 this.trackProgress.addShipPlacement(this.player?.id!, position);                    
@@ -76,29 +74,31 @@ export class FormComponent implements OnInit {
         let toast = new bootstrap.Toast(document.getElementById('toast')!);
 
         if (pos === 'horizontal') {
-            if (lenght + col - 1 > 10) {
+            if (lenght + col - 1 > 6) {
                 toast.show();
                 return false;
             }
             let tableRow = document.getElementsByClassName(`r-${row}`)[0].childNodes;
-            for (let i = col; i < 10; i++) {
-                let el = tableRow[i] as HTMLElement;                
-                if (el.dataset['ship'] === '1') {
+            console.log('table row: ', tableRow);
+            
+            for (let i = col; i < 6; i++) {
+                let el = (tableRow[i] as HTMLElement)?.dataset['ship'];                
+                if (el === '1') {
                     toast.show();
                     return false;
                 }
             }
             return true;
         } else {
-            if (lenght + row - 1 > 10) {
+            if (lenght + row - 1 > 6) {
                 toast.show();
                 return false;
             }
 
             let tableCol = document.getElementsByClassName(`col-${col}`);
-            for (let i = row; i < 10; i++) {
-                let el = tableCol[i] as HTMLElement;
-                if (el.dataset['ship'] === '1') {
+            for (let i = row; i < 6; i++) {
+                let el = (tableCol[i] as HTMLElement)?.dataset['ship'];                 
+                if ( el === '1') {
                     toast.show();
                     return false;
                 }

@@ -17,7 +17,6 @@ export class StartPage implements OnInit {
     player1 = new Player;
     player2 = new Player;
     players?: any[];
-    // players = new Player[];
 
     constructor(
         private formBuilder: FormBuilder,
