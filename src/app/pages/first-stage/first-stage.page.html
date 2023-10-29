@@ -1,0 +1,21 @@
+<div class="container">
+    
+    <h3 class="my-4 text-center">Position five ships on the map!</h3>
+    <div class="my-4" *ngIf="!player1?.firstStage!">
+        <app-grid [player]="player1"></app-grid>
+        <app-form [player]="player1"></app-form>
+    </div>
+    
+    <div class="my-4" *ngIf="player1?.firstStage!">
+        <app-grid [player]="player2"></app-grid>
+        <app-form [player]="player2"></app-form>
+    </div>
+    
+    <div *ngIf="player2?.firstStage!">
+        <div class="container">
+            <button class="btn btn-dark" (click)="startGame()">Play</button>
+        </div>
+    </div>
+
+</div>
+

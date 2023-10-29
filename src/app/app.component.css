@@ -1,0 +1,18 @@
+table {
+    width: max-content !important;
+    max-width: 180px;
+    max-height: 180px;
+}
+
+td {
+    height: 30px;
+    width: 30px;
+}
+
+.active {
+    background: blue !important;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+        <div class="container">
+            <h3 class="mb-3" [ngClass]="{hidden: hideSection}">{{player?.name}}'s turn</h3>
+            <table class="table table-bordered tables m-auto" id="{{player?.id!.toString()}}">
+                <tbody>
+                    <tr *ngFor="let row of numbers" class="r-{{row.toString()}}">
+                        <td [attr.data-ship]="0" *ngFor="let col of numbers" style="width:30px; height:30px"
+                            class="col-{{col.toString()}} row-{{row.toString()}}" (click)="onCellClick($event)">
+                            {{row}}{{col}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p [ngClass]="{hidden: hideSection}" class="mt-3">Sinked Ships: {{player?.lostShips}}</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="staticBackdropModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="showModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Congratulations!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Player {{player?.name}} is the winner</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" (click)="openNewGame()" data-bs-dismiss="modal">New
+                    Game</button>
+            </div>
+        </div>
+    </div>
+</div>
