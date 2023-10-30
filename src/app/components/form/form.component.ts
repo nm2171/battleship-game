@@ -30,6 +30,10 @@ export class FormComponent implements OnInit {
     ngOnInit() {
     }
 
+    /**
+     * Place a ship on the game grid based on the form input.
+     * Checks for the validity of the ship's position and updates the game state accordingly.
+     */
     placeShip() {
         let col = this.placeShipForm.value.shipStartCol! - 1;
         let row = this.placeShipForm.value.shipStartRow! - 1;
@@ -70,6 +74,14 @@ export class FormComponent implements OnInit {
         }
     }
 
+    /**
+     * Check if the ship placement is valid based on its length, starting column and row, and orientation.
+     * @param length - The length of the ship.
+     * @param col - The column position where the ship starts.
+     * @param row - The row position where the ship starts.
+     * @param pos - The orientation of the ship ('horizontal' or 'vertical').
+     * @returns `true` if the placement is valid, otherwise `false`.
+     */
     checkIfValidPosition(lenght: number, col: number, row: number, pos: string) {
         let toast = new bootstrap.Toast(document.getElementById('toast')!);
 

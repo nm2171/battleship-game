@@ -31,6 +31,10 @@ export class GamePage implements OnInit, AfterViewInit {
             document.getElementById(this.player1!.id.toString())?.classList.add('unclickableTable');
     }
 
+    /**
+     * Add ships to the game grid for a player based on their shipPlacement data.
+     * @param player - The player for whom ships are to be added to the grid.
+     */
     addShipForPlayer(player: IPlayer) {
         let grid = document.getElementById(player?.id.toString()!);
         let positions = player.shipPlacement;

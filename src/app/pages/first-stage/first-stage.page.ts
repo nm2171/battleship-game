@@ -19,11 +19,11 @@ export class FirstStagePage implements OnInit {
     constructor(
         private trackProgress: TrackProgressService,
         private router: Router
-    ) { 
-        this.player1 = this.trackProgress.getPlayer(0);
-        this.player2 = this.trackProgress.getPlayer(1);
-    }
-        
+    ) { }
+    
+    /**
+     * Retrieve player information for player1 and player2 from the TrackProgressService.
+     */
     ngOnInit() {        
         this.player1 = this.trackProgress.getPlayer(0);
         this.player2 = this.trackProgress.getPlayer(1);

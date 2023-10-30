@@ -25,6 +25,12 @@ export class GridComponent implements OnInit {
         this.hideSection = this.router.url !== '/game';
     }
 
+     /**
+     * Handle cell click events on the grid.
+     * Updates the game state based on the clicked cell and checks if the cell is a ship position.
+     * Also, it toggles the grids' clickability if the game is not won.
+     * @param cell - The clicked cell element.
+     */
     onCellClick(cell: any) {    
         if(this.hideSection) 
             return;
@@ -49,6 +55,11 @@ export class GridComponent implements OnInit {
         });
     }
 
+    /**
+     * Check if the active player has won the game.
+     * @param activePlayer - The player to check for a win.
+     * @returns `true` if the player has won, otherwise `false`.
+     */
     checkForWin(activePlayer: IPlayer) {
         return this.trackProgress.isWinner(activePlayer.id);
     }

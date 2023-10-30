@@ -2,11 +2,13 @@
     
     <h3 class="my-4 text-center">Position five ships on the map!</h3>
     <div class="my-4" *ngIf="!player1?.firstStage!">
+        <h4 class="my-2 text-center">{{player1?.name}}'s turn</h4>
         <app-grid [player]="player1"></app-grid>
         <app-form [player]="player1"></app-form>
     </div>
     
     <div class="my-4" *ngIf="player1?.firstStage!">
+        <h4 class="my-2 text-center">{{player2?.name}}'s turn</h4>
         <app-grid [player]="player2"></app-grid>
         <app-form [player]="player2"></app-form>
     </div>

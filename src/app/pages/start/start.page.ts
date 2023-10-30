@@ -12,11 +12,9 @@ import { TrackProgressService } from 'src/app/services/track-progress.service';
 
 export class StartPage implements OnInit {
     hideSection: boolean = false;
-    check?: any;
 
     player1 = new Player;
     player2 = new Player;
-    players?: any[];
 
     constructor(
         private formBuilder: FormBuilder,
@@ -32,12 +30,15 @@ export class StartPage implements OnInit {
         player2: ''
     });
 
+    /**
+     * Start a new game with the provided player names.
+     * This function assigns names to player1 and player2,
+     * uses the TrackProgressService to add the same players to the game's progress tracking service,
+     * and navigates to the first-stage route.
+     */
     startGame() {
         this.player1.name = this.startFormGame.value.player1!;
         this.player2.name = this.startFormGame.value.player2!;
-
-        this.players?.push(this.player1);
-        this.players?.push(this.player2);
 
         this.trackProgress.addPlayer(this.player1);
         this.trackProgress.addPlayer(this.player2);
