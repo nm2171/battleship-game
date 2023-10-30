@@ -2,18 +2,29 @@
     <form class="form" [formGroup]="startFormGame">
         <div class="form-floating my-3">
             <input class="form-control" name="player1-name" type="text" placeholder="Player 1"
-                formControlName="player1">
+                formControlName="player1" required>
             <label class="form-label" for="player1-name">Player 1: </label>
         </div>
 
         <div class="form-floating my-3">
             <input class="form-control" name="player2-name" type="text" placeholder="Player 2"
-                formControlName="player2">
+                formControlName="player2" required>
             <label class="form-label" for="player2-name">Player 2: </label>
         </div>
 
         <div>
             <button type="submit" (click)="startGame()" class="btn btn-dark">Start Game</button>
+        </div>
+
+        <div class="toast m-auto mt-4 align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive"
+            aria-atomic="true" id="toast" style="height: fit-content;">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <strong>Enter player's name</strong>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
         </div>
     </form>
 </div>

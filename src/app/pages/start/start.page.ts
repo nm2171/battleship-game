@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Player } from 'src/app/player';
 import { TrackProgressService } from 'src/app/services/track-progress.service';
+import * as bootstrap from 'bootstrap';
 
 @Component({
     selector: 'start-page',
@@ -37,11 +38,16 @@ export class StartPage implements OnInit {
      * and navigates to the first-stage route.
      */
     startGame() {
-        this.player1.name = this.startFormGame.value.player1!;
-        this.player2.name = this.startFormGame.value.player2!;
-
-        this.trackProgress.addPlayer(this.player1);
-        this.trackProgress.addPlayer(this.player2);
-        this.router.navigateByUrl('/first-stage');
+        if(this.startFormGame.value.player1! === '' || this.startFormGame.value.player2! === '') {
+            let toast = new bootstrap.Toast(document.getElementById('toast')!);
+            toast.show();
+        } else {
+            this.player1.name = this.startFormGame.value.player1!;
+            this.player2.name = this.startFormGame.value.player2!;
+    
+            this.trackProgress.addPlayer(this.player1);
+            this.trackProgress.addPlayer(this.player2);
+            this.router.navigateByUrl('/first-stage');
+        }
     }
 }

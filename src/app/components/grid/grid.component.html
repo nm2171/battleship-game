@@ -7,7 +7,7 @@
                     <tr *ngFor="let row of numbers" class="r-{{row.toString()}}">
                         <td [attr.data-ship]="0" *ngFor="let col of numbers" style="width:30px; height:30px"
                             class="col-{{col.toString()}} row-{{row.toString()}}" (click)="onCellClick($event)">
-                            {{row}}{{col}}
+                            R{{row+1}}-C{{col+1}}
                         </td>
                     </tr>
                 </tbody>
